@@ -17,6 +17,7 @@ import { useMutation } from "convex/react";
 import { cn } from "@/lib/utils";
 import { api } from "@/convex/_generated/api";
 import { UserItem } from "./user-item";
+import { DocumentList } from "./document-list";
 
 export const Navigation = () => {
   const router = useRouter();
@@ -127,6 +128,9 @@ export const Navigation = () => {
         </div>
         <div>
           <UserItem />
+        </div>
+        <div className="mt-4">
+          <DocumentList />
         </div>
         <div
           onMouseDown={handleMouseDown}
