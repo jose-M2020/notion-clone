@@ -3,10 +3,13 @@
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useQuery } from "convex/react";
+import { FileIcon } from "lucide-react";
 
 import { Doc, Id } from "@/convex/_generated/dataModel";
 import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
+
+import { Item } from "./item";
 
 interface DocumentListProps {
   parentDocumentId?: Id<"documents">;
@@ -33,10 +36,20 @@ export const DocumentList = ({
     parentDocument: parentDocumentId
   });
 
+  const onRedirect = (documentId: string) => {
+    router.push(`/documents/${documentId}`);
+  };
+
   if (documents === undefined) {
     return (
       <>
-        <span>No documents...</span>
+        <Item.Skeleton level={level} />
+        {level === 0 && (
+          <>
+            <Item.Skeleton level={level} />
+            <Item.Skeleton level={level} />
+          </>
+        )}
       </>
     );
   };
@@ -57,7 +70,17 @@ export const DocumentList = ({
       </p>
       {documents.map((document) => (
         <div key={document._id}>
-          <span>{ document.title }</span>
+          <Item
+            id={document._id}
+            onClick={() => onRedirect(document._id)}
+            label={document.title}
+            icon={FileIcon}
+            documentIcon={document.icon}
+            active={params.documentId === document._id}
+            level={level}
+            onExpand={() => onExpand(document._id)}
+            expanded={expanded[document._id]}
+          />
           {expanded[document._id] && (
             <DocumentList
               parentDocumentId={document._id}
