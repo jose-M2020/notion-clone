@@ -60,7 +60,7 @@ export const CoverImageModal = () => {
           </h2>
         </DialogHeader>
         <SingleImageDropzone
-          className="w-full outline-none"
+          className="w-full outline-hidden"
           disabled={isSubmitting}
           value={file}
           onChange={onChange}
