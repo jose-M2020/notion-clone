@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@blocknote/core": "^0.9.6",
-    "@blocknote/react": "^0.9.6",
+    "@blocknote/core": "^0.33.0",
+    "@blocknote/mantine": "^0.33.0",
+    "@blocknote/react": "^0.33.0",
     "@clerk/clerk-react": "^4.27.1",
     "@edgestore/react": "^0.1.4",
     "@edgestore/server": "^0.1.4",
@@ -41,14 +42,15 @@
     "zustand": "^4.4.6"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "autoprefixer": "^10",
     "eslint": "^8",
     "eslint-config-next": "14.0.0",
     "postcss": "^8",
-    "tailwindcss": "^3",
+    "shiki": "^3.7.0",
+    "tailwindcss": "^4.1.11",
     "typescript": "^5"
   }
 }

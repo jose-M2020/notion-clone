@@ -1,82 +1,164 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
- 
-html,
-body,
-:root {
-  height: 100%;
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer utilities {
+  html,
+  body,
+  :root {
+    height: 100%;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius: var(--radius);
 }
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    --background: #edf1fd;
+    --foreground: #031130;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
- 
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
- 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
- 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
- 
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --card: #FFFFFF;
+    --card-foreground: #23272F;
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
- 
-    --radius: 0.5rem;
+    --popover: #F2F4F8;
+    --popover-foreground: #23272F;
+
+    --primary: #082678;
+    --primary-foreground: #edf1fd;
+
+    /* --secondary: #8766f5; */
+    --secondary: #e1e7f6;
+    --secondary-foreground: #031130;
+
+    --muted: #BFC8E6;
+    --muted-foreground: #6B7280;
+
+    --accent: #570dbf;
+    --accent-foreground: #edf1fd;
+
+    --destructive: #F87171;
+    --destructive-foreground: #FFFFFF;
+
+    --border: #E5E7EB;
+    --input: #E5E7EB;
+    --ring: #7B6EF6;
+
+    --radius: 0.75rem;
   }
  
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
- 
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
- 
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
- 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
- 
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
- 
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
- 
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
- 
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --background: #06101c;
+    --foreground: #cfddfc;
+
+    --card: #23272F;
+    --card-foreground: #F6F7F9;
+
+    --popover: #232B3B;
+    --popover-foreground: #F6F7F9;
+
+    --primary: #8bb9e7;
+    --primary-foreground: #01050e;
+
+    /* --secondary: #2b0a99; */
+    --secondary: #0d1e33;
+    --secondary-foreground: #cfddfc;
+
+    --muted: #3A4157;
+    --muted-foreground: #C7D0E6;
+
+    --accent: #a265f9;
+    --accent-foreground: #cfddfc;
+
+    --destructive: #EF4444;
+    --destructive-foreground: #FFFFFF;
+
+    --border: #3A4157;
+    --input: #3A4157;
+    --ring: #A18AFF;
   }
 }
  
 @layer base {
   * {
-    @apply border-border;
+    /* @apply border-border; */
   }
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Base theme */
+.bn-container[data-blocknote-theming-css-variables] {
+  --bn-colors-editor-text: var(--foreground);
+  --bn-colors-editor-background: var(--background);
+  --bn-colors-menu-text: var(--foreground);
+  --bn-colors-menu-background: var(--background);
+  --bn-colors-tooltip-text: var(--secondary-foreground);
+  --bn-colors-tooltip-background: var(--secondary);
+  --bn-colors-hovered-text: var(--secondary-foreground);
+  --bn-colors-hovered-background: var(--secondary);
+  --bn-colors-selected-text: var(--secondary-foreground);
+  --bn-colors-selected-background: var(--secondary);
+  --bn-colors-disabled-text: var(--muted-foreground);
+  --bn-colors-disabled-background: var(--muted);
+  --bn-colors-shadow: var(--border);
+  --bn-colors-border: var(--border);
+  --bn-colors-side-menu: var(--muted-foreground);
+  --bn-color-highlight-colors: var(--accent);
+  --bn-border-radius: var(--radius);
+  --bn-font-family: Helvetica Neue, sans-serif;
+}
+ 
+/* Changes for dark mode */
+.bn-container[data-blocknote-theming-css-variables][data-color-scheme="dark"] {
+  --bn-colors-editor-text: var(--foreground);
+  --bn-colors-editor-background: var(--background);
+  --bn-colors-menu-text: var(--foreground);
+  --bn-colors-menu-background: var(--background);
+  --bn-colors-tooltip-text: var(--secondary-foreground);
+  --bn-colors-tooltip-background: var(--secondary);
+  --bn-colors-hovered-text: var(--secondary-foreground);
+  --bn-colors-hovered-background: var(--secondary);
+  --bn-colors-selected-text: var(--secondary-foreground);
+  --bn-colors-selected-background: var(--secondary);
+  --bn-colors-disabled-text: var(--muted-foreground);
+  --bn-colors-disabled-background: var(--muted);
+  --bn-colors-shadow: var(--border);
+  --bn-colors-border: var(--border);
+  --bn-colors-side-menu: var(--muted-foreground);
+  --bn-color-highlight-colors: var(--accent);
+  --bn-border-radius: var(--radius);
+  --bn-font-family: Helvetica Neue, sans-serif;
+}
+
+.bn-container pre {
+  background-color: var(--secondary);
+  /* color: #d4d4d4 !important;
+  border-radius: 6px;
+  padding: 12px;
+  font-family: monospace; */
 }
